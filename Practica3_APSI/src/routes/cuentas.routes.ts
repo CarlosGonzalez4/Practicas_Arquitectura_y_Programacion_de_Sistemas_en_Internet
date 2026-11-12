@@ -1,0 +1,12 @@
+import { Router } from "express";
+import { createCuenta, getCuentas, getCuenta, updateEstadoCuenta, getMovimientosCuenta } from "../controllers/cuentas.controllers.js";
+import { ingresarDinero, retirarDinero } from "../controllers/movimientos.controllers.js";
+const router = Router();
+router.post("/", createCuenta);
+router.get("/", getCuentas);
+router.get("/:id", getCuenta);
+router.patch("/:id/estado", updateEstadoCuenta);
+router.get("/:id/movimientos", getMovimientosCuenta);
+router.post("/:id/ingresos", ingresarDinero);
+router.post("/:id/retiradas", retirarDinero);
+export default router;
